@@ -2,18 +2,33 @@
     "intents": [
         {
             "tag": "greeting",
-            "patterns": ["hi", "hello", "hey", "good morning", "good afternoon", "good evening"],
+            "patterns": ["hi", "hello", "hey", "good morning", "good afternoon", "good evening", "yo", "greetings"],
             "responses": ["Hello! How can I help you today?", "Hi there! What can I do for you?", "Welcome!"]
         },
         {
             "tag": "exit",
-            "patterns": ["bye", "exit", "quit", "terminate", "goodbye"],
+            "patterns": ["bye", "exit", "quit", "terminate", "goodbye", "see you later"],
             "responses": ["Goodbye! Have a great day.", "See you later!", "Chat closed."]
+        },
+        {
+            "tag": "thanks",
+            "patterns": ["thanks", "thank you", "appreciate it", "much appreciated", "thx"],
+            "responses":  ["You're welcome!", "Happy to help! Let me know if you need anything else.", "Anytime! Glad I could assist."]
+        },
+        {
+            "tag": "botIdentity",
+            "patterns": ["who are you", "who r u", "are you a bot", "are u a bot", "are you human", "are u human", "what is your name", "what is ur name", "ur name", "tell me about yourself", "tell me about urself"],
+            "responses": ["I am an automated chatbot here to help you.", "I am a chatbot."]
+        },
+        {
+            "tag": "smallTalk",
+            "patterns": ["how are you", "how r u", "how are you doing", "how is your day", "how is ur day"],
+            "responses": ["I'm running smoothly and ready to help!", "Doing great, thanks for asking!"]
         },
         {
             "tag": "fallback",
             "patterns": [""],
-            "responses": ["I did not understand that."]
+            "responses": ["I did not understand that.", "I don't have an answer for that yet.", "Sorry, I didn't catch that."]
         }
     ]
 }
