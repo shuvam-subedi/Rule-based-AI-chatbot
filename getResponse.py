@@ -1,11 +1,13 @@
-import json
 import random
 import re
-
-with open("./intents.json") as file:
-    intents = json.load(file)
+from loadIntents import loadIntents
+import sys
 
 def getResponse(userInput):
+    intents = loadIntents("./intents.json")
+    if intents == None:
+        sys.exit()
+    
     userInput = userInput.lower().strip()
     fallbackResponse = []
 
