@@ -9,6 +9,11 @@
             "tag": "exit",
             "patterns": ["bye", "exit", "quit", "terminate", "goodbye"],
             "responses": ["Goodbye! Have a great day.", "See you later!", "Chat closed."]
+        },
+        {
+            "tag": "fallback",
+            "patterns": [""],
+            "responses": ["I did not understand that."]
         }
     ]
 }
