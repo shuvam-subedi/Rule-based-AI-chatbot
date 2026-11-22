@@ -12,17 +12,17 @@
         },
         {
             "tag": "thanks",
-            "patterns": ["thanks", "thank you", "appreciate it", "much appreciated", "thx"],
+            "patterns": ["thanks", "thank you", "appreciate it", "much appreciated"],
             "responses":  ["You're welcome!", "Happy to help! Let me know if you need anything else.", "Anytime! Glad I could assist."]
         },
         {
             "tag": "botIdentity",
-            "patterns": ["who are you", "who r u", "are you a bot", "are u a bot", "are you human", "are u human", "what is your name", "what is ur name", "ur name", "tell me about yourself", "tell me about urself"],
+            "patterns": ["who are you", "are you a bot", "are you human", "are you a human", "what is your name", "your name", "tell me about yourself"],
             "responses": ["I am an automated chatbot here to help you.", "I am a chatbot."]
         },
         {
             "tag": "smallTalk",
-            "patterns": ["how are you", "how r u", "how are you doing", "how is your day", "how is ur day"],
+            "patterns": ["how are you", "how are you doing", "how is your day"],
             "responses": ["I'm running smoothly and ready to help!", "Doing great, thanks for asking!"]
         },
         {

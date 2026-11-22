@@ -1,6 +1,7 @@
 import random
 import re
 from loadIntents import loadIntents
+from preProcessing import preProcessing
 import sys
 
 def getResponse(userInput):
@@ -8,7 +9,7 @@ def getResponse(userInput):
     if intents == None:
         sys.exit()
     
-    userInput = userInput.lower().strip()
+    userInput = preProcessing(userInput)
     fallbackResponse = []
 
     for intent in intents["intents"]:
