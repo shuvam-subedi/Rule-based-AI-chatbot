@@ -1,0 +1,14 @@
+{
+    "intents": [
+        {
+            "tag": "greeting",
+            "patterns": ["hi", "hello", "hey", "good morning", "good afternoon", "good evening"],
+            "responses": ["Hello! How can I help you today?", "Hi there! What can I do for you?", "Welcome!"]
+        },
+        {
+            "tag": "exit",
+            "patterns": ["bye", "exit", "quit", "terminate", "goodbye"],
+            "responses": ["Goodbye! Have a great day.", "See you later!", "Chat closed."]
+        }
+    ]
+}
