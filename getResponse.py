@@ -1,24 +1,32 @@
 import random
-import re
 from loadIntents import loadIntents
 from preProcessing import preProcessing
 import sys
+from rapidfuzz import fuzz
 
 def getResponse(userInput):
     intents = loadIntents("./intents.json")
-    if intents == None:
+    if intents is None:
         sys.exit()
     
     userInput = preProcessing(userInput)
     fallbackResponse = []
 
+    bestScore = 0
+    bestIntent = None
+
     for intent in intents["intents"]:
         if intent["tag"] == "fallback":
             fallbackResponse = intent["responses"]
             continue
+
         for pattern in intent["patterns"]:
-            regex = r"\b" + re.escape(pattern.lower().strip()) + r"\b"
-            if re.search(regex, userInput):
-                return intent["tag"], random.choice(intent["responses"])
+            score = fuzz.WRatio(userInput, pattern)
+            if score > bestScore:
+                bestScore = score
+                bestIntent = intent
+
+    if bestIntent and bestScore >= 0.7:
+        return bestIntent["tag"], random.choice(bestIntent["responses"])
 
     return "fallback", random.choice(fallbackResponse)
