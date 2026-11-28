@@ -1,12 +1,17 @@
 import random
 from ddgs import DDGS
+import re
 
+def shortenText(text, maxSentenses=2):
+    sentenses = re.split(r"(?<=[.!?])\s+", text.strip())
+    return " ".join(sentenses[:maxSentenses])
 
 def fetchFromInternet(query):
     try:
         results = list(DDGS().text(str(query), max_results=1))
         if results:
-            return f"{results[0]['body']} (Source: {results[0]['href']})"
+            shortBody = shortenText(results[0]["body"], maxSentenses=2)
+            return f"{shortBody}\n(Source: {results[0]['href']})"
         else:
             return random.choice(["I couldn't find anything on the internet for that.", "Nothing relevant found. Please try again."])
     except Exception as e:
