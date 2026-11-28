@@ -3,6 +3,7 @@ from loadIntents import loadIntents
 from preProcessing import preProcessing
 import sys
 from rapidfuzz import fuzz
+from fetch import fetchFromInternet
 
 def getResponse(userInput):
     intents = loadIntents("./intents.json")
@@ -26,7 +27,12 @@ def getResponse(userInput):
                 bestScore = score
                 bestIntent = intent
 
-    if bestIntent and bestScore >= 0.7:
+    if bestIntent and bestScore >= 70:
+        if bestIntent["tag"] == "internetTrigger":
+            for pattern in bestIntent["patterns"]:
+                userInput = userInput.replace(preProcessing(pattern), "").strip()
+            return bestIntent["tag"], fetchFromInternet(userInput)
+        
         return bestIntent["tag"], random.choice(bestIntent["responses"])
 
     return "fallback", random.choice(fallbackResponse)

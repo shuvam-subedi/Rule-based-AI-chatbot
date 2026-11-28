@@ -29,6 +29,10 @@
             "tag": "fallback",
             "patterns": [""],
             "responses": ["I did not understand that.", "I don't have an answer for that yet.", "Sorry, I didn't catch that."]
+        },
+        {
+            "tag": "internetTrigger",
+            "patterns": ["look up", "search", "find information about", "who is"]
         }
     ]
 }
